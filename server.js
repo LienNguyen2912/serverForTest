@@ -4,13 +4,19 @@ const port = 3000;
 
 app.use(express.json());
 
-app.post('/delayed-response', (req, res) => {
+// Route for POST method
+app.post('/delayed', (req, res) => {
   // Simulate a delay of 2 seconds before responding
   setTimeout(() => {
-    res.json({ message: 'hello world' });
+    res.json({ message: 'hello world after delaying 5s!' });
   }, 5000);
 });
 
+// Route for GET method
+app.get('/', (req, res) => {
+  res.json({ message: 'Server is up and running babeeee**!' });
+});
+
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`**Server listening at ${port}...`);
 });
